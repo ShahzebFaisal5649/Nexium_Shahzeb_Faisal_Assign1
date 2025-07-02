@@ -4,14 +4,12 @@
   "description": "Nexium AI-First Web Development Internship - Shahzeb Faisal",
   "private": true,
   "scripts": {
-    "dev": "cd internship && next dev",
-    "build": "cd internship && next build",
-    "start": "cd internship && next start",
-    "lint": "cd internship && next lint",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "setup": "echo 'Day 1 setup completed successfully! 🎉'",
-    "verify": "node --version && pnpm --version && vercel --version && prisma --version",
-    "install-internship": "cd internship && npm install",
-    "build-all": "npm run install-internship && npm run build"
+    "verify": "node --version && pnpm --version && vercel --version && prisma --version"
   },
   "keywords": [
     "nexium",
@@ -37,12 +35,6 @@
     "node": ">=20.0.0",
     "pnpm": ">=8.0.0"
   },
-  "workspaces": [
-    "internship",
-    "assignment-1",
-    "assignment-2", 
-    "grand-project"
-  ],
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
