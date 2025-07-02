@@ -2,25 +2,30 @@
   "name": "nexium-shahzeb-faisal-internship",
   "version": "1.0.0",
   "description": "Nexium AI-First Web Development Internship - Shahzeb Faisal",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "echo 'Navigate to specific assignment folder to run dev server'",
-    "build": "echo 'Navigate to specific assignment folder to build'", 
-    "start": "echo 'Navigate to specific assignment folder to start'",
+    "dev": "cd internship && next dev",
+    "build": "cd internship && next build",
+    "start": "cd internship && next start",
+    "lint": "cd internship && next lint",
     "setup": "echo 'Day 1 setup completed successfully! 🎉'",
-    "verify": "node --version && pnpm --version && vercel --version && prisma --version"
+    "verify": "node --version && pnpm --version && vercel --version && prisma --version",
+    "install-internship": "cd internship && npm install",
+    "build-all": "npm run install-internship && npm run build"
   },
   "keywords": [
     "nexium",
-    "internship",
-    "nextjs", 
+    "internship", 
+    "nextjs",
     "ai",
     "web-development",
     "supabase",
     "mongodb",
     "n8n",
     "vercel",
-    "prisma"
+    "prisma",
+    "typescript",
+    "tailwindcss"
   ],
   "author": "Shahzeb Faisal",
   "license": "MIT",
@@ -31,5 +36,27 @@
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=8.0.0"
+  },
+  "workspaces": [
+    "internship",
+    "assignment-1",
+    "assignment-2", 
+    "grand-project"
+  ],
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.3.4"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "@eslint/eslintrc": "^3"
   }
 }
