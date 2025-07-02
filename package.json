@@ -1,0 +1,35 @@
+{
+  "name": "nexium-shahzeb-faisal-internship",
+  "version": "1.0.0",
+  "description": "Nexium AI-First Web Development Internship - Shahzeb Faisal",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo 'Navigate to specific assignment folder to run dev server'",
+    "build": "echo 'Navigate to specific assignment folder to build'", 
+    "start": "echo 'Navigate to specific assignment folder to start'",
+    "setup": "echo 'Day 1 setup completed successfully! 🎉'",
+    "verify": "node --version && pnpm --version && vercel --version && prisma --version"
+  },
+  "keywords": [
+    "nexium",
+    "internship",
+    "nextjs", 
+    "ai",
+    "web-development",
+    "supabase",
+    "mongodb",
+    "n8n",
+    "vercel",
+    "prisma"
+  ],
+  "author": "Shahzeb Faisal",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShahzebFaisal5649/Nexium_Shahzeb_Faisal_Assign1.git"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
