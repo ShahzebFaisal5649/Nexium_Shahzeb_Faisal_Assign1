@@ -1,0 +1,144 @@
+{
+  "quotes": [
+    {
+      "id": 1,
+      "text": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs",
+      "category": "motivation",
+      "tags": ["work", "passion", "success"]
+    },
+    {
+      "id": 2,
+      "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "category": "success",
+      "tags": ["success", "failure", "courage", "perseverance"]
+    },
+    {
+      "id": 3,
+      "text": "The future belongs to those who believe in the beauty of their dreams.",
+      "author": "Eleanor Roosevelt",
+      "category": "dreams",
+      "tags": ["dreams", "future", "belief", "inspiration"]
+    },
+    {
+      "id": 4,
+      "text": "It is during our darkest moments that we must focus to see the light.",
+      "author": "Aristotle",
+      "category": "inspiration",
+      "tags": ["inspiration", "hope", "difficult times", "focus"]
+    },
+    {
+      "id": 5,
+      "text": "The only impossible journey is the one you never begin.",
+      "author": "Tony Robbins",
+      "category": "motivation",
+      "tags": ["motivation", "journey", "beginning", "action"]
+    },
+    {
+      "id": 6,
+      "text": "In the middle of difficulty lies opportunity.",
+      "author": "Albert Einstein",
+      "category": "opportunity",
+      "tags": ["opportunity", "difficulty", "challenge", "growth"]
+    },
+    {
+      "id": 7,
+      "text": "Life is what happens to you while you're busy making other plans.",
+      "author": "John Lennon",
+      "category": "life",
+      "tags": ["life", "plans", "present", "mindfulness"]
+    },
+    {
+      "id": 8,
+      "text": "The way to get started is to quit talking and begin doing.",
+      "author": "Walt Disney",
+      "category": "action",
+      "tags": ["action", "start", "execution", "motivation"]
+    },
+    {
+      "id": 9,
+      "text": "Don't let yesterday take up too much of today.",
+      "author": "Will Rogers",
+      "category": "motivation",
+      "tags": ["motivation", "present", "past", "moving forward"]
+    },
+    {
+      "id": 10,
+      "text": "You learn more from failure than from success. Don't let it stop you. Failure builds character.",
+      "author": "Unknown",
+      "category": "failure",
+      "tags": ["failure", "learning", "character", "growth"]
+    },
+    {
+      "id": 11,
+      "text": "If you are working on something that you really care about, you don't have to be pushed. The vision pulls you.",
+      "author": "Steve Jobs",
+      "category": "passion",
+      "tags": ["passion", "vision", "motivation", "work"]
+    },
+    {
+      "id": 12,
+      "text": "People who are crazy enough to think they can change the world, are the ones who do.",
+      "author": "Rob Siltanen",
+      "category": "innovation",
+      "tags": ["innovation", "change", "world", "crazy", "belief"]
+    },
+    {
+      "id": 13,
+      "text": "Your time is limited, don't waste it living someone else's life.",
+      "author": "Steve Jobs",
+      "category": "life",
+      "tags": ["life", "time", "authenticity", "purpose"]
+    },
+    {
+      "id": 14,
+      "text": "Innovation distinguishes between a leader and a follower.",
+      "author": "Steve Jobs",
+      "category": "innovation",
+      "tags": ["innovation", "leadership", "creativity", "uniqueness"]
+    },
+    {
+      "id": 15,
+      "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
+      "author": "Chinese Proverb",
+      "category": "action",
+      "tags": ["action", "timing", "start", "procrastination"]
+    },
+    {
+      "id": 16,
+      "text": "Believe you can and you're halfway there.",
+      "author": "Theodore Roosevelt",
+      "category": "motivation",
+      "tags": ["belief", "confidence", "motivation", "success"]
+    },
+    {
+      "id": 17,
+      "text": "The mind is everything. What you think you become.",
+      "author": "Buddha",
+      "category": "mindset",
+      "tags": ["mindset", "thoughts", "transformation", "wisdom"]
+    },
+    {
+      "id": 18,
+      "text": "Success is walking from failure to failure with no loss of enthusiasm.",
+      "author": "Winston Churchill",
+      "category": "success",
+      "tags": ["success", "failure", "enthusiasm", "perseverance"]
+    },
+    {
+      "id": 19,
+      "text": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+      "author": "Nelson Mandela",
+      "category": "resilience",
+      "tags": ["resilience", "perseverance", "strength", "overcoming"]
+    },
+    {
+      "id": 20,
+      "text": "Be yourself; everyone else is already taken.",
+      "author": "Oscar Wilde",
+      "category": "authenticity",
+      "tags": ["authenticity", "individuality", "self-expression", "uniqueness"]
+    }
+  ]
+}
