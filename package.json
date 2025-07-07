@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "setup": "echo 'Day 1 setup completed successfully! 🎉'",
-    "verify": "node --version && pnpm --version && vercel --version && prisma --version"
+    "verify": "node --version && pnpm --version && vercel --version && prisma --version",
+    "test:accessibility": "node scripts/test-accessibility.js",
+    "test:lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./reports/lighthouse.html",
+    "test:lighthouse-ci": "lighthouse http://localhost:3000 --output=json --output-path=./reports/lighthouse.json --chrome-flags='--headless'"
   },
   "keywords": [
     "nexium",
@@ -62,3 +65,4 @@
     "typescript": "^5"
   }
 }
+  
