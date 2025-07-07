@@ -1,138 +1,238 @@
-'use client' // This directive makes it a Client Component
+'use client'
 
 import { useState } from 'react'
-import { quotes } from '../lib/quotes'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Quote, quotes } from '@/app/lib/quotes'
 
-export default function QuoteForm() {
+export default function EnhancedQuoteForm() {
   const [topic, setTopic] = useState('')
-  const [displayedQuotes, setDisplayedQuotes] = useState<string[]>([])
+  const [displayedQuotes, setDisplayedQuotes] = useState<Quote[]>([])
   const [isLoading, setIsLoading] = useState(false)
+  const [favoriteQuotes, setFavoriteQuotes] = useState<Set<number>>(new Set())
+
+  const quickTopics = ['success', 'motivation', 'life', 'dreams', 'perseverance', 'wisdom', 'courage']
 
   const generateQuotes = async () => {
     if (!topic.trim()) return
     
     setIsLoading(true)
     
-    // Simulate API call delay
+    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000))
     
-    // Get quotes for the topic (or random if topic not found)
-    const topicQuotes = quotes[topic.toLowerCase()] || quotes.general
-    
-    // Select 3 random quotes
-    const selectedQuotes = topicQuotes
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 3)
-    
-    setDisplayedQuotes(selectedQuotes)
+    const topicQuotes = quotes[topic.toLowerCase()] || quotes['motivation']
+    const shuffled = [...topicQuotes].sort(() => Math.random() - 0.5)
+    setDisplayedQuotes(shuffled.slice(0, 3))
     setIsLoading(false)
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      generateQuotes()
+  const toggleFavorite = (index: number) => {
+    const newFavorites = new Set(favoriteQuotes)
+    if (newFavorites.has(index)) {
+      newFavorites.delete(index)
+    } else {
+      newFavorites.add(index)
     }
+    setFavoriteQuotes(newFavorites)
+  }
+
+  const clearAll = () => {
+    setTopic('')
+    setDisplayedQuotes([])
+    setFavoriteQuotes(new Set())
+  }
+
+  const handleQuickTopic = (quickTopic: string) => {
+    setTopic(quickTopic)
   }
 
   return (
-    <div className="space-y-8">
-      {/* Quote Input Form */}
-      <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/30">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-gray-800 mb-2">Enter Your Topic</h3>
-          <p className="text-gray-600">What inspires you today?</p>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4">
-          <input
-            type="text"
-            placeholder="e.g., success, motivation, life, dreams..."
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-            onKeyPress={handleKeyPress}
-            className="flex-1 px-6 py-4 text-gray-800 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 placeholder-gray-500"
-          />
-          <button
-            onClick={generateQuotes}
-            disabled={isLoading || !topic.trim()}
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-          >
-            {isLoading ? (
-              <span className="flex items-center">
-                <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Generating...
-              </span>
-            ) : (
-              'Generate Quotes ✨'
-            )}
-          </button>
-        </div>
-        
-        {/* Quick Topic Suggestions */}
-        <div className="mt-6 flex flex-wrap gap-2 justify-center">
-          {['success', 'motivation', 'life', 'dreams', 'happiness'].map((suggestedTopic) => (
-            <button
-              key={suggestedTopic}
-              onClick={() => setTopic(suggestedTopic)}
-              className="px-4 py-2 text-sm text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200 border border-blue-200"
-            >
-              {suggestedTopic}
-            </button>
-          ))}
+    <div className="w-full max-w-6xl mx-auto space-y-8" data-theme="nexium">
+      {/* Hero Section with DaisyUI */}
+      <div className="hero min-h-[200px] bg-gradient-to-r from-primary to-secondary rounded-box shadow-2xl">
+        <div className="hero-content text-center">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold text-white mb-4">✨ Quote Generator</h1>
+            <p className="text-xl text-white/90">
+              Discover inspiring quotes tailored to your chosen topics
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Display Generated Quotes */}
-      {displayedQuotes.length > 0 && (
-        <div className="space-y-6">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-gray-800 mb-2">Your Inspirational Quotes</h3>
-            <p className="text-gray-600">Let these words fuel your journey</p>
-          </div>
-          
-          <div className="grid gap-6">
-            {displayedQuotes.map((quote, index) => (
-              <div 
-                key={index} 
-                className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl shadow-lg border border-white/50 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
-                style={{
-                  animationDelay: `${index * 0.2}s`,
-                  animation: 'fadeInUp 0.6s ease-out forwards'
-                }}
+      {/* Input Section - ShadCN + DaisyUI Hybrid */}
+      <Card className="backdrop-blur-md bg-white/10 border-white/20 shadow-2xl">
+        <CardHeader>
+          <CardTitle className="text-center text-white text-2xl font-bold flex items-center justify-center gap-3">
+            <div className="badge badge-accent badge-lg">AI-Powered</div>
+            Generate Inspiring Quotes
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Input with DaisyUI styling */}
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text text-white/90 font-semibold">What inspires you today?</span>
+            </label>
+            <div className="input-group">
+              <Input
+                type="text"
+                placeholder="Enter a topic (e.g., success, motivation, life...)"
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && generateQuotes()}
+                className="input input-bordered w-full bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-accent"
+              />
+              <Button 
+                onClick={generateQuotes}
+                disabled={!topic.trim() || isLoading}
+                className="btn btn-accent btn-square"
               >
-                <div className="flex items-start">
-                  <div className="text-4xl text-blue-500 mr-4 mt-2">&ldquo;</div>
-                  <div className="flex-1">
-                    <p className="text-lg text-gray-800 font-medium leading-relaxed italic mb-4">
-                      {quote}
-                    </p>
-                    <div className="flex items-center">
-                      <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                      <span className="ml-3 text-sm text-gray-500 font-medium">Quote #{index + 1}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                {isLoading ? (
+                  <span className="loading loading-spinner loading-md"></span>
+                ) : (
+                  '✨'
+                )}
+              </Button>
+            </div>
+          </div>
+
+          {/* Progress bar when loading */}
+          {isLoading && (
+            <progress className="progress progress-accent w-full"></progress>
+          )}
+
+          {/* Quick Topics with DaisyUI badges */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <div className="badge badge-ghost text-white">Quick topics:</div>
+            {quickTopics.map((quickTopic) => (
+              <button
+                key={quickTopic}
+                className="badge badge-outline badge-primary hover:badge-primary cursor-pointer transition-all duration-200 capitalize"
+                onClick={() => handleQuickTopic(quickTopic)}
+              >
+                {quickTopic}
+              </button>
             ))}
           </div>
-          
-          {/* Action Buttons */}
-          <div className="flex justify-center gap-4 mt-8">
-            <button
-              onClick={() => generateQuotes()}
-              className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-105"
+
+          {/* Action buttons */}
+          {displayedQuotes.length > 0 && (
+            <div className="flex gap-3 justify-center">
+              <Button 
+                onClick={generateQuotes}
+                className="btn btn-outline btn-accent"
+              >
+                🔄 Get New Quotes
+              </Button>
+              <Button 
+                onClick={clearAll}
+                className="btn btn-outline btn-error"
+              >
+                ✨ Clear All
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Stats Section */}
+      {displayedQuotes.length > 0 && (
+        <div className="stats shadow-lg bg-white/10 backdrop-blur-md border border-white/20">
+          <div className="stat">
+            <div className="stat-figure text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div className="stat-title text-white/70">Topic</div>
+            <div className="stat-value text-white capitalize">{topic}</div>
+            <div className="stat-desc text-white/60">Current inspiration theme</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+              </svg>
+            </div>
+            <div className="stat-title text-white/70">Quotes Generated</div>
+            <div className="stat-value text-white">{displayedQuotes.length}</div>
+            <div className="stat-desc text-white/60">Fresh inspirations</div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-warning">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <div className="stat-title text-white/70">Favorites</div>
+            <div className="stat-value text-white">{favoriteQuotes.size}</div>
+            <div className="stat-desc text-white/60">Saved for later</div>
+          </div>
+        </div>
+      )}
+
+      {/* Quotes Display with DaisyUI Cards */}
+      {displayedQuotes.length > 0 && (
+        <div className="grid gap-6 md:grid-cols-3">
+          {displayedQuotes.map((quote, index) => (
+            <div
+              key={index}
+              className="card bg-white/10 backdrop-blur-md border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-fade-in"
             >
-              🔄 Get New Quotes
-            </button>
-            <button
-              onClick={() => setDisplayedQuotes([])}
-              className="px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-xl hover:bg-gray-200 transition-all duration-200 transform hover:scale-105"
-            >
-              ✨ Clear All
-            </button>
+              <div className="card-body">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="badge badge-accent">Quote #{index + 1}</div>
+                  <button
+                    onClick={() => toggleFavorite(index)}
+                    className={`btn btn-ghost btn-circle btn-sm ${
+                      favoriteQuotes.has(index) ? 'text-warning' : 'text-white/50'
+                    }`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill={favoriteQuotes.has(index) ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <blockquote className="text-white text-lg font-medium leading-relaxed mb-4">
+                  &quot;{quote.text}&quot;
+                </blockquote>
+                
+                <div className="divider divider-accent"></div>
+                
+                <cite className="text-white/80 text-sm font-semibold flex items-center gap-2">
+                  <div className="avatar placeholder">
+                    <div className="bg-accent text-accent-content rounded-full w-8">
+                      <span className="text-xs">{quote.author.charAt(0)}</span>
+                    </div>
+                  </div>
+                  {quote.author}
+                </cite>
+
+                {/* Action buttons */}
+                <div className="card-actions justify-end mt-4">
+                  <button className="btn btn-ghost btn-xs">Share</button>
+                  <button className="btn btn-ghost btn-xs">Copy</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Empty state with DaisyUI */}
+      {!isLoading && displayedQuotes.length === 0 && topic && (
+        <div className="text-center py-12">
+          <div className="alert alert-info shadow-lg max-w-md mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>No quotes found for &quot;{topic}&quot;. Try a different topic!</span>
           </div>
         </div>
       )}
