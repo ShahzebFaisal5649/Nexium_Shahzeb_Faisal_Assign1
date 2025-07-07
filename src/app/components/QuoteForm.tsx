@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
 import { Quote, quotes } from '@/app/lib/quotes'
 
 export default function EnhancedQuoteForm() {
@@ -200,7 +202,7 @@ export default function EnhancedQuoteForm() {
                 </div>
                 
                 <blockquote className="text-white text-lg font-medium leading-relaxed mb-4">
-                  &quot;{quote.text}&quot;
+                  "{quote.text}"
                 </blockquote>
                 
                 <div className="divider divider-accent"></div>
@@ -232,7 +234,7 @@ export default function EnhancedQuoteForm() {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            <span>No quotes found for &quot;{topic}&quot;. Try a different topic!</span>
+            <span>No quotes found for "{topic}". Try a different topic!</span>
           </div>
         </div>
       )}

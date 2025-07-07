@@ -1,11 +1,12 @@
-import './globals.css'
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Quote Generator | Nexium Assignment 1',
-  description: 'Generate motivational quotes by topic - Built with Next.js 15',
+  description: 'AI-powered quote generator built with Next.js 15, ShadCN UI, and DaisyUI',
 }
 
 export default function RootLayout({
@@ -14,9 +15,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        {children}
+    <html lang="en" data-theme="nexium">
+      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-primary via-secondary to-accent`}>
+        <main className="container mx-auto px-4 py-8">
+          {children}
+        </main>
       </body>
     </html>
   )
