@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -18,7 +18,11 @@ export const metadata: Metadata = {
     description: 'Discover inspiring quotes with our AI-powered generator',
     type: 'website',
   },
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
   themeColor: '#8b5cf6',
 }
 
@@ -29,10 +33,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body className={`${inter.className} antialiased overflow-x-hidden`}>
         {children}
       </body>
