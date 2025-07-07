@@ -1,0 +1,128 @@
+30-Day Roadmap
+Day 1: Kick-off: Repo setup & Git workflow
+Get started by creating your GitHub repo, setting up Node.js and pnpm, and following the onboarding checklist.
+
+Day 2: Next.js 15 Fundamentals 
+https://www.youtube.com/watch?v=ZjAqacIC_3c
+Learn the basics of Next.js 15, including project structure, routing, and core concepts.
+Next.js 15 Fundamentals – Watch the video and follow along for hands-on mastery.
+
+Day 3: App Router & Server Components
+https://www.youtube.com/watch?v=2GZ2SNXWK-c
+Deep dive into the App Router and how to use Server Components for scalable apps.
+App Router & Server Components – Watch the video and follow along for hands-on mastery.
+
+Day 4: ShadCN UI Setup & Theming
+https://www.youtube.com/watch?v=NTZ1SwQzCMs
+Integrate ShadCN UI, customize themes, and build reusable components.
+ShadCN UI Setup & Theming – Watch the video and follow along for hands-on mastery.
+
+Day 5: DaisyUI & Tailwind Styling
+https://www.youtube.com/watch?v=c2M-rlkkT5o&t=2701s
+Enhance your UI with DaisyUI and advanced Tailwind CSS techniques.
+DaisyUI & Tailwind Styling – Watch the video and follow along for hands-on mastery.
+
+Day 6: Accessibility Testing with Lighthouse
+https://www.youtube.com/watch?v=sPmat30SE4k
+Test and improve your app’s accessibility using Lighthouse and best practices.
+Accessibility Testing with Lighthouse – Watch the video and follow along for hands-on mastery.
+
+Day 7: Peer Review & Assignment 1 Demo (Quote Generator
+Present your Quote Generator, get feedback, and review peers’ work.
+
+Day 8: Intro to n8n & Webhooks 
+https://www.youtube.com/watch?v=qw--VYLpxG4&t=1s
+Automate workflows using n8n and learn about webhooks integration.
+Intro to n8n & Webhooks – Watch the video and follow along for hands-on mastery.
+
+Day 9: LLM Flows & Al Agents in n8n
+https://www.youtube.com/watch?v=rH3zE7VlIMs
+Build AI-powered flows and agents using n8n’s LLM integrations.
+LLM Flows & AI Agents in n8n – Watch the video and follow along for hands-on mastery.
+
+Day 10: PostgreSQL + Prisma Integration
+Connect your app to PostgreSQL using Prisma ORM for robust data management.
+PostgreSQL + Prisma Integration – Watch the video and follow along for hands-on mastery.
+
+Day 11: MongoDB + Mongoose CRUD
+Implement CRUD operations with MongoDB and Mongoose in your backend.
+MongoDB + Mongoose CRUD – Watch the video and follow along for hands-on mastery.
+
+Day 12: Vercel CI/CD + GitHub Actions
+Set up CI/CD pipelines with Vercel and automate deployments using GitHub Actions.
+Vercel CI/CD + GitHub Actions – Watch the video and follow along for hands-on mastery.
+
+Day 13: Peer Review & Assignment 2 Demo (Blog Summariser)
+Showcase your Blog Summariser, exchange feedback, and learn from others.
+Deliverable: Assignment 2 demo
+
+Day 14: Assignment 2 Due
+Submit your deployed Blog Summariser for review.
+Deliverable: Blog Summariser deployed to Vercel (assignment-2/)
+
+Day 15: Grand Project Sprint Begins (PRD + wireframes pushed to /docs)
+Kick off your grand project by pushing your PRD and wireframes to /docs.
+Deliverable: PRD & wireframes
+
+Day 16: Grand Sprint - Backend & DB Setup started
+Start building your backend and database for the grand project.
+
+Day 17: Continue backend & n8n logic
+Continue backend development and integrate n8n logic.
+
+Day 18: Milestone: backend & DB pushed to /api
+Push your backend and DB code to /api as a milestone.
+Deliverable: Backend & DB milestone
+
+Day 19: Frontend Ul kick-off
+Begin developing the frontend UI for your project.
+
+Day 20: Frontend Ul in progress 
+Continue building and refining your frontend UI.
+
+Day 21: Milestone: frontend pushed to /app
+Push your frontend code to /app as a milestone.
+Deliverable: Frontend milestone
+
+Day 22: Al logic integration
+Integrate AI logic into your application.
+
+Day 23: Al logic testing
+Test and validate your AI logic and flows.
+
+Day 24: Milestone: Al flows & simulations pushed to /ai
+Push your AI flows and simulations to /ai as a milestone.
+Deliverable: AI logic milestone
+
+Day 25: Ul polish & responsiveness checks
+Polish your UI and ensure responsiveness across devices.
+
+Day 26: Bug-fixing & final feature tweaks
+Fix bugs and finalize features for your project.
+
+Day 27: Public demo site goes live
+Deploy your public demo site and share the link.
+Deliverable: Demo site live
+
+Day 28: QA pass & performance optimization
+Conduct QA and optimize your app’s performance.
+
+Day 29: Docs & Loom walkthrough + final README
+Prepare documentation and record a Loom walkthrough.
+Deliverable: Docs & Loom walkthrough
+
+Day 30: Final Project Demo: live pitch, walkthrough, code review
+Present your project, walkthrough the code, and complete the final review.
+Deliverable: Final Demo Day
+
+
+
+
+
+
+
+nexium-pg project https://simmcmpmbdkfqjifxrea.supabase.co
+
+API key:
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpbW1jbXBtYmRrZnFqaWZ4cmVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0NTIxMjMsImV4cCI6MjA2NzAyODEyM30.ZIUoQMSKRlmC_g2stmYxbc1bseA3IZkPgmZYSiLlhF8
