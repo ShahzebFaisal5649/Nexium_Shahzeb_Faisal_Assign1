@@ -9,7 +9,7 @@
 [![DaisyUI](https://img.shields.io/badge/DaisyUI-5.0-5A0EF8?logo=daisyui&logoColor=white)](https://daisyui.com/)
 [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com)
 
-**Live Demo:** [QuoteGen AI]( https://your-actual-deployment-url.vercel.app) 🌐
+**Live Demo:** [QuoteGen AI]([ https://your-actual-deployment-url.vercel.app](https://nexium-shahzeb-assignment1-d26vsg0u0-l215649-nuedupks-projects.vercel.app/)) 🌐
 
 ---
 
